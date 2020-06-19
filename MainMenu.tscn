@@ -1,0 +1,822 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://Sprites/Background.png" type="Texture" id=1]
+[ext_resource path="res://MainMenu.gd" type="Script" id=2]
+[ext_resource path="res://Pancake.tscn" type="PackedScene" id=3]
+[ext_resource path="res://homespun.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://Sprites/Button Press.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/Button Hover.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/Button Inactive.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/Button Normal.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/Button 10 Normal.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/Button Even Normal.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/Button Half Normal.png" type="Texture" id=11]
+[ext_resource path="res://Sounds/Click.wav" type="AudioStream" id=12]
+
+[sub_resource type="DynamicFont" id=1]
+outline_size = 1
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 12
+outline_size = 1
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 8
+outline_size = 1
+font_data = ExtResource( 4 )
+
+[node name="MainMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+texture = ExtResource( 1 )
+
+[node name="Pancake" parent="." instance=ExtResource( 3 )]
+position = Vector2( 45, 63 )
+
+[node name="Menu" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Menu"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = -95.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_outline_modulate = Color( 1, 1, 1, 1 )
+text = "The
+Last
+Pancake"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="StartButton" type="TextureButton" parent="Menu"]
+margin_left = 15.0
+margin_top = 65.0
+margin_right = 75.0
+margin_bottom = 90.0
+texture_normal = ExtResource( 8 )
+texture_pressed = ExtResource( 5 )
+texture_hover = ExtResource( 6 )
+texture_disabled = ExtResource( 7 )
+expand = true
+
+[node name="Label" type="Label" parent="Menu/StartButton"]
+margin_right = 60.0
+margin_bottom = 25.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_outline_modulate = Color( 1, 1, 1, 1 )
+text = "Start"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="TutorialButton" type="TextureButton" parent="Menu"]
+margin_left = 15.0
+margin_top = 95.0
+margin_right = 75.0
+margin_bottom = 120.0
+texture_normal = ExtResource( 8 )
+texture_pressed = ExtResource( 5 )
+texture_hover = ExtResource( 6 )
+texture_disabled = ExtResource( 7 )
+expand = true
+
+[node name="Label" type="Label" parent="Menu/TutorialButton"]
+margin_right = 60.0
+margin_bottom = 25.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_outline_modulate = Color( 1, 1, 1, 1 )
+text = "Tutorial"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="EndButton" type="TextureButton" parent="Menu"]
+margin_left = 15.0
+margin_top = 125.0
+margin_right = 75.0
+margin_bottom = 150.0
+texture_normal = ExtResource( 8 )
+texture_pressed = ExtResource( 5 )
+texture_hover = ExtResource( 6 )
+texture_disabled = ExtResource( 7 )
+expand = true
+
+[node name="Label" type="Label" parent="Menu/EndButton"]
+margin_right = 60.0
+margin_bottom = 25.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_outline_modulate = Color( 1, 1, 1, 1 )
+text = "Exit"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Tutorial" type="Control" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Tutorial"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = -135.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_outline_modulate = Color( 1, 1, 1, 1 )
+text = "Tutorial"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Part1" type="Control" parent="Tutorial"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = -20.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Tutorial/Part1"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 25.0
+margin_bottom = -5.0
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_outline_modulate = Color( 1, 1, 1, 1 )
+text = "This is a Pancake
+Eating Contest
+
+However, not the one
+who eats the most
+pancakes wins,
+but the one who
+eats the last Pancake."
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NextButton" type="TextureButton" parent="Tutorial/Part1"]
+margin_left = 15.0
+margin_top = 135.0
+margin_right = 75.0
+margin_bottom = 160.0
+texture_normal = ExtResource( 8 )
+texture_pressed = ExtResource( 5 )
+texture_hover = ExtResource( 6 )
+texture_disabled = ExtResource( 7 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Tutorial/Part1/NextButton"]
+margin_right = 60.0
+margin_bottom = 25.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_outline_modulate = Color( 1, 1, 1, 1 )
+text = "Next"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Part2" type="Control" parent="Tutorial"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Tutorial/Part2"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 25.0
+margin_bottom = -25.0
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_outline_modulate = Color( 1, 1, 1, 1 )
+text = "The catch is that
+nobody knows how
+many pancakes are
+left.
+
+The game starts with
+a random amount of
+pancakes between
+10 and 20."
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NextButton" type="TextureButton" parent="Tutorial/Part2"]
+margin_left = 15.0
+margin_top = 135.0
+margin_right = 75.0
+margin_bottom = 160.0
+texture_normal = ExtResource( 8 )
+texture_pressed = ExtResource( 5 )
+texture_hover = ExtResource( 6 )
+texture_disabled = ExtResource( 7 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Tutorial/Part2/NextButton"]
+margin_right = 60.0
+margin_bottom = 25.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_outline_modulate = Color( 1, 1, 1, 1 )
+text = "Next"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Part3" type="Control" parent="Tutorial"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Tutorial/Part3"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 25.0
+margin_bottom = -15.0
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_outline_modulate = Color( 1, 1, 1, 1 )
+text = "Whenever one person
+eats one pancake
+the other person
+eats two.
+
+After the pancakes
+are eaten, it is the
+other persons turn."
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NextButton" type="TextureButton" parent="Tutorial/Part3"]
+margin_left = 15.0
+margin_top = 135.0
+margin_right = 75.0
+margin_bottom = 160.0
+texture_normal = ExtResource( 8 )
+texture_pressed = ExtResource( 5 )
+texture_hover = ExtResource( 6 )
+texture_disabled = ExtResource( 7 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Tutorial/Part3/NextButton"]
+margin_right = 60.0
+margin_bottom = 25.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_outline_modulate = Color( 1, 1, 1, 1 )
+text = "Next"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Part4" type="Control" parent="Tutorial"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Tutorial/Part4"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 25.0
+margin_bottom = -15.0
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_outline_modulate = Color( 1, 1, 1, 1 )
+text = "On your turn you can
+decide to either eat
+a pancake or
+to use one of your
+abilities to try and
+find out how many
+pancakes are left."
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NextButton" type="TextureButton" parent="Tutorial/Part4"]
+margin_left = 15.0
+margin_top = 135.0
+margin_right = 75.0
+margin_bottom = 160.0
+texture_normal = ExtResource( 8 )
+texture_pressed = ExtResource( 5 )
+texture_hover = ExtResource( 6 )
+texture_disabled = ExtResource( 7 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Tutorial/Part4/NextButton"]
+margin_right = 60.0
+margin_bottom = 25.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_outline_modulate = Color( 1, 1, 1, 1 )
+text = "Next"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Part5" type="Control" parent="Tutorial"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Tutorial/Part5"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 25.0
+margin_bottom = -25.0
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_outline_modulate = Color( 1, 1, 1, 1 )
+text = "When you use an
+Ability you won't
+eat a pancake on
+your turn.
+
+The Color of the
+Button indicates
+wether the condition
+of the Ability was met."
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NextButton" type="TextureButton" parent="Tutorial/Part5"]
+margin_left = 15.0
+margin_top = 135.0
+margin_right = 75.0
+margin_bottom = 160.0
+texture_normal = ExtResource( 8 )
+texture_pressed = ExtResource( 5 )
+texture_hover = ExtResource( 6 )
+texture_disabled = ExtResource( 7 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Tutorial/Part5/NextButton"]
+margin_right = 60.0
+margin_bottom = 25.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_outline_modulate = Color( 1, 1, 1, 1 )
+text = "Next"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Part6" type="Control" parent="Tutorial"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Tutorial/Part6"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 25.0
+margin_bottom = -25.0
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_outline_modulate = Color( 1, 1, 1, 1 )
+text = "Even Ability:
+
+
+
+
+Check if the
+amount of remaining
+pancakes is even."
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="Tutorial/Part6/Label"]
+margin_left = 30.0
+margin_top = 30.0
+margin_right = 60.0
+margin_bottom = 60.0
+texture = ExtResource( 10 )
+
+[node name="NextButton" type="TextureButton" parent="Tutorial/Part6"]
+margin_left = 15.0
+margin_top = 135.0
+margin_right = 75.0
+margin_bottom = 160.0
+texture_normal = ExtResource( 8 )
+texture_pressed = ExtResource( 5 )
+texture_hover = ExtResource( 6 )
+texture_disabled = ExtResource( 7 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Tutorial/Part6/NextButton"]
+margin_right = 60.0
+margin_bottom = 25.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_outline_modulate = Color( 1, 1, 1, 1 )
+text = "Next"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Part7" type="Control" parent="Tutorial"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Tutorial/Part7"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 25.0
+margin_bottom = -25.0
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_outline_modulate = Color( 1, 1, 1, 1 )
+text = "Half Ability:
+
+
+
+
+Check if at least half
+of the pancakes
+has already been eaten."
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="Tutorial/Part7/Label"]
+margin_left = 30.0
+margin_top = 30.0
+margin_right = 60.0
+margin_bottom = 60.0
+texture = ExtResource( 11 )
+
+[node name="NextButton" type="TextureButton" parent="Tutorial/Part7"]
+margin_left = 15.0
+margin_top = 135.0
+margin_right = 75.0
+margin_bottom = 160.0
+texture_normal = ExtResource( 8 )
+texture_pressed = ExtResource( 5 )
+texture_hover = ExtResource( 6 )
+texture_disabled = ExtResource( 7 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Tutorial/Part7/NextButton"]
+margin_right = 60.0
+margin_bottom = 25.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_outline_modulate = Color( 1, 1, 1, 1 )
+text = "Next"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Part8" type="Control" parent="Tutorial"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Tutorial/Part8"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 25.0
+margin_bottom = -25.0
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_outline_modulate = Color( 1, 1, 1, 1 )
+text = "Ten Ability:
+
+
+
+
+Check if less than
+ten pancakes are
+remaining."
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="Tutorial/Part8/Label"]
+margin_left = 30.0
+margin_top = 30.0
+margin_right = 60.0
+margin_bottom = 60.0
+texture = ExtResource( 9 )
+
+[node name="NextButton" type="TextureButton" parent="Tutorial/Part8"]
+margin_left = 15.0
+margin_top = 135.0
+margin_right = 75.0
+margin_bottom = 160.0
+texture_normal = ExtResource( 8 )
+texture_pressed = ExtResource( 5 )
+texture_hover = ExtResource( 6 )
+texture_disabled = ExtResource( 7 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Tutorial/Part8/NextButton"]
+margin_right = 60.0
+margin_bottom = 25.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_outline_modulate = Color( 1, 1, 1, 1 )
+text = "Next"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Part9" type="Control" parent="Tutorial"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Tutorial/Part9"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 25.0
+margin_bottom = -25.0
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_outline_modulate = Color( 1, 1, 1, 1 )
+text = "You can use each
+Ability only once
+per Game.
+
+So choose carefully."
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NextButton" type="TextureButton" parent="Tutorial/Part9"]
+margin_left = 15.0
+margin_top = 135.0
+margin_right = 75.0
+margin_bottom = 160.0
+texture_normal = ExtResource( 8 )
+texture_pressed = ExtResource( 5 )
+texture_hover = ExtResource( 6 )
+texture_disabled = ExtResource( 7 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Tutorial/Part9/NextButton"]
+margin_right = 60.0
+margin_bottom = 25.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_outline_modulate = Color( 1, 1, 1, 1 )
+text = "Next"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Part10" type="Control" parent="Tutorial"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Tutorial/Part10"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 25.0
+margin_bottom = -25.0
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_outline_modulate = Color( 1, 1, 1, 1 )
+text = "On his turn the
+Computer will choose
+at random wether
+he will eat a pancake
+or not."
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NextButton" type="TextureButton" parent="Tutorial/Part10"]
+margin_left = 15.0
+margin_top = 135.0
+margin_right = 75.0
+margin_bottom = 160.0
+texture_normal = ExtResource( 8 )
+texture_pressed = ExtResource( 5 )
+texture_hover = ExtResource( 6 )
+texture_disabled = ExtResource( 7 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Tutorial/Part10/NextButton"]
+margin_right = 60.0
+margin_bottom = 25.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_outline_modulate = Color( 1, 1, 1, 1 )
+text = "Next"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Part11" type="Control" parent="Tutorial"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Tutorial/Part11"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 25.0
+margin_bottom = -25.0
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_outline_modulate = Color( 1, 1, 1, 1 )
+text = "And remember:
+Whenever somebody
+eats a pancake
+the other person
+eats two.
+
+Good luck!"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NextButton" type="TextureButton" parent="Tutorial/Part11"]
+margin_left = 15.0
+margin_top = 135.0
+margin_right = 75.0
+margin_bottom = 160.0
+texture_normal = ExtResource( 8 )
+texture_pressed = ExtResource( 5 )
+texture_hover = ExtResource( 6 )
+texture_disabled = ExtResource( 7 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Tutorial/Part11/NextButton"]
+margin_right = 60.0
+margin_bottom = 25.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_outline_modulate = Color( 1, 1, 1, 1 )
+text = "Back"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="ButtonClick" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 12 )
+volume_db = -10.0
+[connection signal="pressed" from="Menu/StartButton" to="." method="_on_StartButton_pressed"]
+[connection signal="pressed" from="Menu/TutorialButton" to="." method="_on_TutorialButton_pressed"]
+[connection signal="pressed" from="Menu/EndButton" to="." method="_on_EndButton_pressed"]
+[connection signal="pressed" from="Tutorial/Part1/NextButton" to="." method="_on_NextButton_pressed"]
+[connection signal="pressed" from="Tutorial/Part2/NextButton" to="." method="_on_NextButton_pressed"]
+[connection signal="pressed" from="Tutorial/Part3/NextButton" to="." method="_on_NextButton_pressed"]
+[connection signal="pressed" from="Tutorial/Part4/NextButton" to="." method="_on_NextButton_pressed"]
+[connection signal="pressed" from="Tutorial/Part5/NextButton" to="." method="_on_NextButton_pressed"]
+[connection signal="pressed" from="Tutorial/Part6/NextButton" to="." method="_on_NextButton_pressed"]
+[connection signal="pressed" from="Tutorial/Part7/NextButton" to="." method="_on_NextButton_pressed"]
+[connection signal="pressed" from="Tutorial/Part8/NextButton" to="." method="_on_NextButton_pressed"]
+[connection signal="pressed" from="Tutorial/Part9/NextButton" to="." method="_on_NextButton_pressed"]
+[connection signal="pressed" from="Tutorial/Part10/NextButton" to="." method="_on_NextButton_pressed"]
+[connection signal="pressed" from="Tutorial/Part11/NextButton" to="." method="_on_NextButton_pressed"]
